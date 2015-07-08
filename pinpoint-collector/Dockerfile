@@ -1,6 +1,6 @@
 # DESCRIPTION       Pinpoint APM Collector
 # TO_BUILD          docker build -t pinpoint-collector .
-# TO_RUN            docker run -d --net=host -e HBASE_HOST=<HOST_IP> -e HBASE_PORT=2181 -e COLLECTOR_TCP_PORT=9994 -e COLLECTOR_UDP_STAT_LISTEN_PORT=9995 -e COLLECTOR_UDP_SPAN_LISTEN_PORT=9996 -p 9994:9994 -p 9995:9995/udp -p 9996:9996/udp --name=pinpoint-collector pinpoint-collector
+# TO_RUN            docker run -d -e HBASE_HOST=<HOST_IP> -e HBASE_PORT=2181 -e COLLECTOR_TCP_PORT=9994 -e COLLECTOR_UDP_STAT_LISTEN_PORT=9995 -e COLLECTOR_UDP_SPAN_LISTEN_PORT=9996 -p 9994:9994 -p 9995:9995/udp -p 9996:9996/udp --name=pinpoint-collector pinpoint-collector
 
 FROM tomcat:8-jre8
 
@@ -21,5 +21,9 @@ RUN chmod a+x /usr/local/tomcat/start.sh
 
 ADD hbase.properties /assets/hbase.properties
 ADD pinpoint-collector.properties /assets/pinpoint-collector.properties
+
+EXPOSE 9994
+EXPOSE 9995
+EXPOSE 9996
 
 CMD ["/usr/local/tomcat/start.sh"]
