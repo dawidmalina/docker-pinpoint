@@ -6,17 +6,16 @@ FROM tomcat:8-jre8
 
 ENV PINPOINT_VERSION 1.1.0
 
-RUN curl -SL "https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-web-$PINPOINT_VERSION.war" -o pinpoint-web.war && \
-    rm -rf /usr/local/tomcat/webapps && \
-    mkdir -p /usr/local/tomcat/webapps && \
-    unzip pinpoint-web.war -d /usr/local/tomcat/webapps/ROOT && \
-    rm -rf pinpoint-web.war
-
 ADD start.sh /usr/local/tomcat/start.sh
-RUN chmod a+x /usr/local/tomcat/start.sh
-
 ADD hbase.properties /assets/hbase.properties
 ADD pinpoint-web.properties /assets/pinpoint-web.properties
+
+RUN chmod a+x /usr/local/tomcat/start.sh\
+	&& curl -SL "https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-web-$PINPOINT_VERSION.war" -o pinpoint-web.war \
+    && rm -rf /usr/local/tomcat/webapps \
+    && mkdir -p /usr/local/tomcat/webapps \
+    && unzip pinpoint-web.war -d /usr/local/tomcat/webapps/ROOT \
+    && rm -rf pinpoint-web.war
 
 EXPOSE 8080
 

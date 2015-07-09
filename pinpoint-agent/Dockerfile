@@ -14,6 +14,9 @@ RUN mkdir -p /opt/app \
     && tar -xf pinpoint-agent-$PINPOINT_VERSION.tar -C /opt/app \
     && rm pinpoint-agent-$PINPOINT_VERSION.tar
 
-RUN sed -i 's/profiler.collector.ip=127.0.0.1/profiler.collector.ip=192.168.59.103/' /opt/app/pinpoint-agent/pinpoint.config
+ADD configure.sh /configure.sh
+RUN chmod a+x /configure.sh
 
 VOLUME /opt/app/pinpoint-agent
+
+CMD ["/configure.sh"]
