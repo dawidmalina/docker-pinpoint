@@ -13,7 +13,7 @@ RUN mkdir -p /opt/hbase \
     && cd /opt/hbase \
     && curl -SL "http://apache.mirrors.pair.com/hbase/$HBASE_VERSION/hbase-$HBASE_VERSION-bin.tar.gz" -o hbase.tar.gz \
     && tar xfvz hbase.tar.gz \
-    rm -rf hbase.tar.gz
+    && rm -rf hbase.tar.gz
 
 ADD hbase-site.xml /opt/hbase/hbase-$HBASE_VERSION/conf/hbase-site.xml
 
