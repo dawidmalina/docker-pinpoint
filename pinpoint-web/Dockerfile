@@ -1,6 +1,6 @@
 # DESCRIPTION       Pinpoint APM Web (User Interface)
 # TO_BUILD          docker build -t pinpoint-web .
-# TO_RUN            docker run -d -p 8080:8080 -e HBASE_HOST=<HOST_IP> -e HBASE_PORT=2181 --name=pinpoint-web pinpoint-web
+# TO_RUN            docker run -d -p 8080:8080 --net=host -e HBASE_HOST=<HOST_IP> -e HBASE_PORT=2181 --name=pinpoint-web pinpoint-web
 
 FROM tomcat:8-jre8
 
