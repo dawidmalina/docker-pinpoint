@@ -5,13 +5,13 @@
 FROM java:8-jdk
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
-ENV HBASE_VERSION 1.0.1.1
+ENV HBASE_VERSION 1.0.2
 ENV HBASE_HOME /opt/hbase/hbase-$HBASE_VERSION
 ENV PINPOINT_VERSION 1.1.1
 
 RUN mkdir -p /opt/hbase && \
     cd /opt/hbase && \
-    curl -SL "http://apache.mirrors.pair.com/hbase/$HBASE_VERSION/hbase-$HBASE_VERSION-bin.tar.gz" -o hbase.tar.gz && \
+    curl -SL "http://apache.mirrors.pair.com/hbase/hbase-$HBASE_VERSION/hbase-$HBASE_VERSION-bin.tar.gz" -o hbase.tar.gz && \
     tar xfvz hbase.tar.gz && \
     rm -rf hbase.tar.gz
 
