@@ -2,10 +2,9 @@
 # TO_BUILD          docker build -t pinpoint-agent .
 # TO_RUN            docker run --name=pinpoint-agent pinpoint-agent
 
-#FROM progrium/busybox:latest
 FROM java:8-jdk
 
-ENV PINPOINT_VERSION 1.1.0
+ENV PINPOINT_VERSION 1.1.1
 
 #RUN opkg-install bash curl
 

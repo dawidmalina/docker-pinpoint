@@ -4,7 +4,7 @@
 
 FROM tomcat:8-jre8
 
-ENV PINPOINT_VERSION 1.1.0
+ENV PINPOINT_VERSION 1.1.1
 
 RUN curl -SL "https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-web-$PINPOINT_VERSION.war" -o pinpoint-web.war && \
     rm -rf /usr/local/tomcat/webapps && \

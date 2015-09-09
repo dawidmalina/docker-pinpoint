@@ -7,7 +7,7 @@ FROM java:8-jdk
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 ENV HBASE_VERSION 1.0.1.1
 ENV HBASE_HOME /opt/hbase/hbase-$HBASE_VERSION
-ENV PINPOINT_VERSION 1.1.0
+ENV PINPOINT_VERSION 1.1.1
 
 RUN mkdir -p /opt/hbase && \
     cd /opt/hbase && \
