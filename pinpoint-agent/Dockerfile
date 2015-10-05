@@ -12,7 +12,9 @@ RUN mkdir -p /opt/app \
     && curl -L -O -k "https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-agent-$PINPOINT_VERSION.tar.gz" -o pinpoint-agent.tar.gz \
     && gunzip pinpoint-agent-$PINPOINT_VERSION.tar.gz \
     && tar -xf pinpoint-agent-$PINPOINT_VERSION.tar -C /opt/app \
-    && rm pinpoint-agent-$PINPOINT_VERSION.tar
+    && rm pinpoint-agent-$PINPOINT_VERSION.tar \
+    && apk del curl \
+    && rm /var/cache/apk/*
 
 ADD configure.sh /configure.sh
 RUN chmod a+x /configure.sh
