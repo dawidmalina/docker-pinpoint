@@ -38,3 +38,4 @@ EXPOSE 60020
 EXPOSE 60030
 
 CMD /opt/hbase/hbase-$HBASE_VERSION/bin/hbase master start
+
