@@ -15,3 +15,5 @@ RUN mkdir -p /opt/app \
     && rm pinpoint-agent-$PINPOINT_VERSION.tar
 
 RUN sed -i 's/profiler.collector.ip=127.0.0.1/profiler.collector.ip=192.168.59.103/' /opt/app/pinpoint-agent/pinpoint.config
+
+ENTRYPOINT ["bash"]
