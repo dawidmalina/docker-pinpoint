@@ -13,7 +13,7 @@ RUN mkdir -p /opt/app \
     && gunzip pinpoint-agent-$PINPOINT_VERSION.tar.gz \
     && tar -xf pinpoint-agent-$PINPOINT_VERSION.tar -C /opt/app \
     && rm pinpoint-agent-$PINPOINT_VERSION.tar \
-    && apk del wget \
+    && apk del curl \
     && rm /var/cache/apk/*
 
 ADD configure.sh /configure.sh
