@@ -4,10 +4,10 @@
 
 FROM java:8-jdk
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
-ENV HBASE_VERSION 1.0.2
-ENV HBASE_HOME /opt/hbase/hbase-$HBASE_VERSION
-ENV PINPOINT_VERSION 1.1.1
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV HBASE_VERSION=1.0.2
+ENV HBASE_HOME=/opt/hbase/hbase-$HBASE_VERSION
+ENV PINPOINT_VERSION=1.5.0
 
 RUN mkdir -p /opt/hbase && \
     cd /opt/hbase && \
@@ -38,4 +38,3 @@ EXPOSE 60020
 EXPOSE 60030
 
 CMD /opt/hbase/hbase-$HBASE_VERSION/bin/hbase master start
-

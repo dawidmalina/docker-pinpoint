@@ -4,20 +4,20 @@
 
 FROM alpine:3.2
 
-ENV PINPOINT_VERSION 1.1.1
+ENV PINPOINT_VERSION 1.5.0
 
-RUN apk add --update curl bash
+ADD configure.sh /configure.sh
 
-RUN mkdir -p /opt/app \
-    && curl -L -O -k "https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-agent-$PINPOINT_VERSION.tar.gz" -o pinpoint-agent.tar.gz \
+RUN apk add --update curl bash \
+    && chmod a+x /configure.sh \
+    && mkdir -p /opt/app \
+    && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/agent/src/main/resources/pinpoint.config -o /assets/pinpoint.config \
+    && curl -SL https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-agent-$PINPOINT_VERSION.tar.gz -o pinpoint-agent.tar.gz \
     && gunzip pinpoint-agent-$PINPOINT_VERSION.tar.gz \
     && tar -xf pinpoint-agent-$PINPOINT_VERSION.tar -C /opt/app \
     && rm pinpoint-agent-$PINPOINT_VERSION.tar \
     && apk del curl \
     && rm /var/cache/apk/*
-
-ADD configure.sh /configure.sh
-RUN chmod a+x /configure.sh
 
 VOLUME /opt/app/pinpoint-agent
 

@@ -7,11 +7,11 @@ FROM tomcat:8-jre8
 ENV PINPOINT_VERSION 1.1.1
 
 ADD start.sh /usr/local/tomcat/start.sh
-ADD hbase.properties /assets/hbase.properties
-ADD pinpoint-web.properties /assets/pinpoint-web.properties
 
-RUN chmod a+x /usr/local/tomcat/start.sh\
-	&& curl -SL "https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-web-$PINPOINT_VERSION.war" -o pinpoint-web.war \
+RUN chmod a+x /usr/local/tomcat/start.sh \
+    && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/web/src/main/resources/pinpoint-web.properties -o /assets/pinpoint-web.properties \
+    && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/web/src/main/resources/hbase.properties -o /assets/hbase.properties \
+    && curl -SL https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-web-$PINPOINT_VERSION.war -o pinpoint-web.war \
     && rm -rf /usr/local/tomcat/webapps \
     && mkdir -p /usr/local/tomcat/webapps \
     && unzip pinpoint-web.war -d /usr/local/tomcat/webapps/ROOT \
