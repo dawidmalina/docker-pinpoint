@@ -10,9 +10,9 @@ ADD start.sh /usr/local/tomcat/start.sh
 
 RUN chmod a+x /usr/local/tomcat/start.sh \
     && mkdir -p /assets/ \
-    && curl -SL "https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/collector/src/main/resources/pinpoint-collector.properties" -o /assets/pinpoint-collector.properties \
-    && curl -SL "https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/collector/src/main/resources/hbase.properties" -o /assets/hbase.properties \
-    && curl -SL "https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-collector-$PINPOINT_VERSION.war" -o pinpoint-collector.war \
+    && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/collector/src/main/resources/pinpoint-collector.properties -o /assets/pinpoint-collector.properties \
+    && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/collector/src/main/resources/hbase.properties -o /assets/hbase.properties \
+    && curl -SL https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-collector-$PINPOINT_VERSION.war -o pinpoint-collector.war \
     && rm -rf /usr/local/tomcat/webapps \
     && mkdir -p /usr/local/tomcat/webapps \
     && sed -i -e 's/8005/9005/' /usr/local/tomcat/conf/server.xml \
