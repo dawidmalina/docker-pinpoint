@@ -10,9 +10,9 @@ ADD start.sh /usr/local/tomcat/start.sh
 
 RUN chmod a+x /usr/local/tomcat/start.sh \
     && mkdir -p /assets/ \
-    && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/web/src/main/resources/pinpoint-web.properties -o /assets/pinpoint-web.properties \
-    && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/web/src/main/resources/hbase.properties -o /assets/hbase.properties \
-    && curl -SL https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-web-$PINPOINT_VERSION.war -o pinpoint-web.war \
+    && curl -SL "https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/web/src/main/resources/pinpoint-web.properties" -o /assets/pinpoint-web.properties \
+    && curl -SL "https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/web/src/main/resources/hbase.properties" -o /assets/hbase.properties \
+    && curl -SL "https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-web-$PINPOINT_VERSION.war" -o pinpoint-web.war \
     && rm -rf /usr/local/tomcat/webapps \
     && mkdir -p /usr/local/tomcat/webapps \
     && unzip pinpoint-web.war -d /usr/local/tomcat/webapps/ROOT \

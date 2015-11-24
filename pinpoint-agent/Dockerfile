@@ -12,8 +12,8 @@ RUN apk add --update curl bash \
     && chmod a+x /configure.sh \
     && mkdir -p /opt/app \
     && mkdir -p /assets/ \
-    && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/agent/src/main/resources/pinpoint.config -o /assets/pinpoint.config \
-    && curl -SL https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-agent-$PINPOINT_VERSION.tar.gz -o pinpoint-agent-$PINPOINT_VERSION.tar.gz \
+    && curl -SL "https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/agent/src/main/resources/pinpoint.config" -o /assets/pinpoint.config \
+    && curl -SL "https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-agent-$PINPOINT_VERSION.tar.gz" -o pinpoint-agent-$PINPOINT_VERSION.tar.gz \
     && gunzip pinpoint-agent-$PINPOINT_VERSION.tar.gz \
     && tar -xf pinpoint-agent-$PINPOINT_VERSION.tar -C /opt/app \
     && rm pinpoint-agent-$PINPOINT_VERSION.tar \
