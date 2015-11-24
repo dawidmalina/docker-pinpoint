@@ -9,6 +9,7 @@ ENV PINPOINT_VERSION 1.5.0
 ADD start.sh /usr/local/tomcat/start.sh
 
 RUN chmod a+x /usr/local/tomcat/start.sh \
+    && mkdir -p /assets/ \
     && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/collector/src/main/resources/pinpoint-collector.properties -o /assets/pinpoint-web.properties \
     && curl -SL https://github.com/naver/pinpoint/blob/$PINPOINT_VERSION/collector/src/main/resources/hbase.properties -o /assets/hbase.properties \
     && curl -SL https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-collector-$PINPOINT_VERSION.war -o pinpoint-collector.war \
