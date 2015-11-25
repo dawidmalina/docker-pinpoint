@@ -16,6 +16,7 @@ RUN apk add --update curl bash \
     && curl -SL https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-agent-$PINPOINT_VERSION.tar.gz -o pinpoint-agent-$PINPOINT_VERSION.tar.gz \
     && gunzip pinpoint-agent-$PINPOINT_VERSION.tar.gz \
     && tar -xf pinpoint-agent-$PINPOINT_VERSION.tar -C /opt/app \
+    && sed -i 's/DEBUG/INFO/' /opt/app/pinpoint-agent/lib/log4j.xml \
     && rm pinpoint-agent-$PINPOINT_VERSION.tar \
     && apk del curl \
     && rm /var/cache/apk/*
