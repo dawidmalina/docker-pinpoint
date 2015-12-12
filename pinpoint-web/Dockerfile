@@ -4,7 +4,7 @@
 
 FROM tomcat:8-jre8
 
-ENV PINPOINT_VERSION=1.5.0
+ENV PINPOINT_VERSION=1.5.1
 
 ADD start.sh /usr/local/tomcat/start.sh
 
