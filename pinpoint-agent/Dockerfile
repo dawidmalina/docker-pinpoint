@@ -4,7 +4,7 @@
 
 FROM alpine:3.2
 
-ENV PINPOINT_VERSION=1.5.0
+ENV PINPOINT_VERSION=1.5.1
 
 ADD configure.sh /configure.sh
 
