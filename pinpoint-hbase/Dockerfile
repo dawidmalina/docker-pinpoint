@@ -1,6 +1,6 @@
 # DESCRIPTION       Pinpoint APM HBase (Data Storage)
 # TO_BUILD          docker build -t pinpoint-hbase .
-# TO_RUN            docker run -d --net=host -p 2181:2181 -p 60000:60000 -p 60010:60010 -p 60020:60020 -p 60030:60030 --name=pinpoint-hbase pinpoint-hbase
+# TO_RUN            docker run -d --net=host -p 2181:2181 -p 60000:60000 -p 16010:16010 -p 60020:60020 -p 16030:16030 --name=pinpoint-hbase pinpoint-hbase
 
 FROM java:8-jdk
 
@@ -31,10 +31,10 @@ EXPOSE 2181
 # HBase Master API port
 EXPOSE 60000
 # HBase Master Web UI
-EXPOSE 60010
+EXPOSE 16010
 # Regionserver API port
 EXPOSE 60020
 # HBase Regionserver web UI
-EXPOSE 60030
+EXPOSE 16030
 
 CMD /opt/hbase/hbase-$HBASE_VERSION/bin/hbase master start
