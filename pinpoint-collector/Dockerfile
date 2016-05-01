@@ -4,12 +4,12 @@
 
 FROM tomcat:8-jre8
 
-ENV PINPOINT_VERSION=1.5.1
+ENV PINPOINT_VERSION=1.5.2
 
-ADD start.sh /usr/local/tomcat/start.sh
+ADD start-collector.sh /usr/local/bin/
 
-RUN chmod a+x /usr/local/tomcat/start.sh \
-    && mkdir -p /assets/ \
+RUN chmod a+x /usr/local/bin/start-collector.sh \
+    && mkdir -p /assets \
     && curl -SL https://raw.githubusercontent.com/naver/pinpoint/$PINPOINT_VERSION/collector/src/main/resources/pinpoint-collector.properties -o /assets/pinpoint-collector.properties \
     && curl -SL https://raw.githubusercontent.com/naver/pinpoint/$PINPOINT_VERSION/collector/src/main/resources/hbase.properties -o /assets/hbase.properties \
     && curl -SL https://github.com/naver/pinpoint/releases/download/$PINPOINT_VERSION/pinpoint-collector-$PINPOINT_VERSION.war -o pinpoint-collector.war \
@@ -22,8 +22,6 @@ RUN chmod a+x /usr/local/tomcat/start.sh \
     && unzip pinpoint-collector.war -d /usr/local/tomcat/webapps/ROOT \
     && rm -rf pinpoint-collector.war
 
-EXPOSE 9994
-EXPOSE 9995
-EXPOSE 9996
+EXPOSE 9994 9995 9996
 
-CMD ["/usr/local/tomcat/start.sh"]
+ENTRYPOINT ["/usr/local/bin/start-collector.sh"]

@@ -4,11 +4,11 @@
 
 FROM tomcat:8-jre8
 
-ENV PINPOINT_VERSION=1.5.1
+ENV PINPOINT_VERSION=1.5.2
 
-ADD start.sh /usr/local/tomcat/start.sh
+ADD start-web.sh /usr/local/bin/
 
-RUN chmod a+x /usr/local/tomcat/start.sh \
+RUN chmod a+x /usr/local/bin/start-web.sh \
     && mkdir -p /assets/ \
     && curl -SL https://raw.githubusercontent.com/naver/pinpoint/$PINPOINT_VERSION/web/src/main/resources/pinpoint-web.properties -o /assets/pinpoint-web.properties \
     && curl -SL https://raw.githubusercontent.com/naver/pinpoint/$PINPOINT_VERSION/web/src/main/resources/hbase.properties -o /assets/hbase.properties \
@@ -20,4 +20,5 @@ RUN chmod a+x /usr/local/tomcat/start.sh \
 
 EXPOSE 8080
 
-CMD ["/usr/local/tomcat/start.sh"]
+ENTRYPOINT ["/usr/local/bin/start-web.sh"]
+
