@@ -2,9 +2,9 @@
 # TO_BUILD          docker build -t pinpoint-agent .
 # TO_RUN            docker run --name=pinpoint-agent pinpoint-agent
 
-FROM alpine:3.3
+FROM alpine:3.4
 
-ENV PINPOINT_VERSION=1.5.2
+ENV PINPOINT_VERSION=1.6.0-RC1
 
 ADD configure-agent.sh /usr/local/bin/
 
@@ -16,7 +16,7 @@ RUN apk add --update curl bash \
     && gunzip pinpoint-agent-$PINPOINT_VERSION.tar.gz \
     && tar -xf pinpoint-agent-$PINPOINT_VERSION.tar -C /assets \
     && if test -d /assets/pinpoint-agent-$PINPOINT_VERSION; then mv /assets/pinpoint-agent-$PINPOINT_VERSION /assets/pinpoint-agent; fi \
-    && sed -i 's/DEBUG/INFO/' /assets/pinpoint-agent/lib/log4j.xml \
+    && sed -i 's/DEBUG/INFO/' /assets/lib/log4j.xml \
     && rm pinpoint-agent-$PINPOINT_VERSION.tar \
     && apk del curl \
     && rm /var/cache/apk/*

@@ -18,5 +18,5 @@ sed -i "s/profiler.collector.stat.port=9995/profiler.collector.stat.port=${COLLE
 sed -i "s/profiler.collector.span.port=9996/profiler.collector.span.port=${COLLECTOR_UDP_SPAN_LISTEN_PORT}/g" /assets/pinpoint-agent/pinpoint.config
 
 if [ "$DISABLE_DEBUG" == "true" ]; then
-    sed -i 's/level value="DEBUG"/level value="INFO"/' /assets/pinpoint-agent/lib/log4j.xml
+    sed -i 's/level value="DEBUG"/level value="INFO"/' /assets/lib/log4j.xml
 fi
