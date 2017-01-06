@@ -4,7 +4,7 @@
 
 FROM tomcat:8-jre8
 
-ENV PINPOINT_VERSION=1.6.0-RC1
+ENV PINPOINT_VERSION=1.6.0
 
 ADD start-collector.sh /usr/local/bin/
 
