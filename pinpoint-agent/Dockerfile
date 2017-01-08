@@ -2,7 +2,7 @@
 # TO_BUILD          docker build -t pinpoint-agent .
 # TO_RUN            docker run --name=pinpoint-agent pinpoint-agent
 
-FROM alpine:3.4
+FROM alpine:3.5
 
 ENV PINPOINT_VERSION=1.6.0
 
