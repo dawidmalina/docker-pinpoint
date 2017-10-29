@@ -1,0 +1,37 @@
+<configuration>
+    <!-- the port and hostname should be identity to the fs.default.name in $HADOOP_HOME/conf/core-site.xml -->
+    <property>
+        <name>hbase.rootdir</name>
+        <value>file:///home/pinpoint/hbase</value>
+    </property>
+    <property>
+        <name>hbase.zookeeper.property.dataDir</name>
+        <value>/home/pinpoint/zookeeper</value>
+    </property>
+    <property>
+        <name>hbase.cluster.distributed</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hbase.master</name>
+        <value>master:60000</value>
+    </property>
+    <property>
+        <name>hbase.master.port</name>
+        <value>60000</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.port</name>
+        <value>60020</value>
+    </property>
+    <!-- zookeeper cluster we setup in previous post -->
+    <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>master,slave1,slave2</value>
+    </property>
+    <!-- 2 since we have 2 slaves for data -->
+    <property>
+        <name>dfs.replication</name>
+        <value>2</value>
+    </property>
+</configuration>

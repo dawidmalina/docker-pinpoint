@@ -10,6 +10,7 @@ ENV HBASE_HOME=/opt/hbase/hbase-$HBASE_VERSION
 ENV PINPOINT_VERSION=1.6.2
 ENV HBASE_REPOSITORY=http://apache.mirrors.pair.com/hbase
 ENV HBASE_SUB_REPOSITORY=http://archive.apache.org/dist/hbase
+ENV HBASE_MANAGES_ZK=true
 
 RUN mkdir -p /opt/hbase \
     && cd /opt/hbase \
@@ -17,7 +18,8 @@ RUN mkdir -p /opt/hbase \
     && tar xfvz hbase.tar.gz \
     && rm -rf hbase.tar.gz
 
-ADD hbase-site.xml /opt/hbase/hbase-$HBASE_VERSION/conf/hbase-site.xml
+COPY hbase-site.xml /opt/hbase/hbase-$HBASE_VERSION/conf/hbase-site.xml
+COPY hbase-site-clustered.xml /opt/hbase/hbase-$HBASE_VERSION/conf/hbase-site-clustered.xml
 
 RUN curl -SL "https://raw.githubusercontent.com/naver/pinpoint/$PINPOINT_VERSION/hbase/scripts/hbase-create.hbase" -o /opt/hbase/hbase-create.hbase \
     && $HBASE_HOME/bin/start-hbase.sh \
