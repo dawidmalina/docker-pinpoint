@@ -2,7 +2,7 @@
 # TO_BUILD          docker build -t pinpoint-agent .
 # TO_RUN            docker run --name=pinpoint-agent pinpoint-agent
 
-FROM alpine:3.6
+FROM alpine:3.7
 
 ENV PINPOINT_VERSION=1.7.1
 
@@ -24,3 +24,4 @@ RUN apk add --update curl bash \
 VOLUME ["/assets/pinpoint-agent"]
 
 ENTRYPOINT ["/usr/local/bin/configure-agent.sh"]
+CMD ["tail -f /dev/null"]
