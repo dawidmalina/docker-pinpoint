@@ -4,7 +4,7 @@
 
 FROM tomcat:8-jre8
 
-ENV PINPOINT_VERSION=1.7.0
+ENV PINPOINT_VERSION=1.7.1
 
 ADD start-web.sh /usr/local/bin/
 

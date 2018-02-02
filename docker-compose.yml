@@ -4,7 +4,7 @@ services:
   pinpoint-hbase:
     container_name: pinpoint-hbase
     hostname: hbase
-    image: dawidmalina/pinpoint-hbase:1.7.0
+    image: dawidmalina/pinpoint-hbase:1.7.1
     restart: always
     expose:
       - "2181"
@@ -18,7 +18,7 @@ services:
   pinpoint-collector:
     container_name: pinpoint-collector
     hostname: collector
-    image: dawidmalina/pinpoint-collector:1.7.0
+    image: dawidmalina/pinpoint-collector:1.7.1
     restart: always
     expose:
       - "9994"
@@ -44,7 +44,7 @@ services:
   pinpoint-web:
     container_name: pinpoint-web
     hostname: web
-    image: dawidmalina/pinpoint-web:1.7.0
+    image: dawidmalina/pinpoint-web:1.7.1
     restart: always
     expose:
       - "8080"
@@ -61,7 +61,7 @@ services:
 
   # only example
 #  pinpoint-agent:
-#    image: dawidmalina/pinpoint-agent:1.7.0
+#    image: dawidmalina/pinpoint-agent:1.7.1
 #    net: "none"
 #    restart: unless-stopped
 #    volumes:
