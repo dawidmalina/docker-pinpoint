@@ -10,7 +10,7 @@ Configure your shell
 eval "$(docker-machine env docker-vm)"
 ```
 
-To run all containers
+To run all the containers
 ```
 docker-compose up -d
 ```
