@@ -1,22 +1,23 @@
 # docker-pinpoint
 
-Create docker machine
-```
-docker-machine create --driver virtualbox --virtualbox-disk-size "50000" --engine-storage-driver "overlay" --virtualbox-memory "4096" --virtualbox-cpu-count "8" docker-vm
-```
+This repo contains the docker images for [Pinpoint](https://github.com/naver/pinpoint), or you can just use the docker compose file run pinpoint in seconds.
 
-Configure your shell
-```
-eval "$(docker-machine env docker-vm)"
-```
+### Build the images
+* Go to a folder pinpoint-web `docker build -t dawidmalina/pinpoint-web:1.7.1 .` to build the image
+* Go to a folder pinpoint-hbase `docker build -t dawidmalina/pinpoint-hbase:1.7.1 .` to build the image
+* Go to a folder pinpoint-collector `docker build -t dawidmalina/pinpoint-collector:1.7.1 .` to build the image
+* Go to a folder pinpoint-agent `docker build -t dawidmalina/pinpoint-agent:1.7.1 .` to build the image
 
-To run all the containers
+### Run all the containers
 ```
 docker-compose up -d
 ```
 
-If you plan to use external volumes for hbase you should fill hbase first.
-Please run this script inside hbase container
-```
-${HBASE_HOME}/bin/hbase shell /opt/hbase/hbase-create.hbase; ${HBASE_HOME}/bin/stop-hbase.sh
-```
+Open your browser and then go to <http://localhost:3080>
+
+
+> If you plan to use external volumes for hbase you should fill hbase first.
+> Please run this script inside hbase container
+> ```
+> ${HBASE_HOME}/bin/hbase shell /opt/hbase/hbase-create.hbase; ${HBASE_HOME}/bin/stop-hbase.sh
+> ```
