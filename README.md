@@ -15,9 +15,15 @@ docker-compose up -d
 
 Open your browser and then go to <http://localhost:3080>
 
-
 > If you plan to use external volumes for hbase you should fill hbase first.
 > Please run this script inside hbase container
 > ```
 > ${HBASE_HOME}/bin/hbase shell /opt/hbase/hbase-create.hbase; ${HBASE_HOME}/bin/stop-hbase.sh
 > ```
+
+### Example application
+* docker-compose [docker-compose-example-app.yml](docker-compose-example-app.yml)
+```
+docker-compose -f docker-compose-example-app.yml up -d
+```
+* kubernetes [tbd]
