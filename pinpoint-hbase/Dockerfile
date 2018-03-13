@@ -5,7 +5,7 @@
 FROM java:8-jdk
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV HBASE_VERSION=1.2.5
+ENV HBASE_VERSION=1.2.6
 ENV HBASE_HOME=/opt/hbase/hbase-$HBASE_VERSION
 ENV PINPOINT_VERSION=1.7.1
 ENV HBASE_REPOSITORY=http://apache.mirrors.pair.com/hbase
