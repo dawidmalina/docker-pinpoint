@@ -3,7 +3,7 @@ services:
 
   pinpoint-hbase:
     container_name: pinpoint-hbase
-    hostname: hbase
+    hostname: pinpoint-hbase
     image: dawidmalina/pinpoint-hbase:1.7.1
     restart: always
     expose:
@@ -34,13 +34,15 @@ services:
       - "9995:9995/udp"
       - "9996:9996/udp"
     environment:
-      HBASE_HOST: hbase
+      HBASE_HOST: pinpoint-hbase
       HBASE_PORT: 2181
       COLLECTOR_TCP_PORT: 9994
       COLLECTOR_UDP_STAT_LISTEN_PORT: 9995
       COLLECTOR_UDP_SPAN_LISTEN_PORT: 9996
       CLUSTER_ENABLE: 'true'
       CLUSTER_ZOOKEEPER_ADDRESS: pinpoint-hbase
+      FLINK_CLUSTER_ENABLE: 'true'
+      FLINK_CLUSTER_ZOOKEEPER_ADDRESS: pinpoint-hbase
       DISABLE_DEBUG: 'true'
 
   pinpoint-web:
@@ -64,6 +66,7 @@ services:
       CLUSTER_WEB_TCP_PORT: 9997
       ADMIN_PASSWORD: admin123
       DISABLE_ANALYTICS: 'true'
+      ENABLE_APPLICATION_INSPECTOR: 'true'
       DISABLE_DEBUG: 'true'
 
   # only example
@@ -78,4 +81,5 @@ services:
 #      COLLECTOR_TCP_PORT: 9994
 #      COLLECTOR_UDP_STAT_LISTEN_PORT: 9995
 #      COLLECTOR_UDP_SPAN_LISTEN_PORT: 9996
+#      PROFILER_SAMPLING_RATE: 1
 #      DISABLE_DEBUG: 'true'

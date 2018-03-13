@@ -7,17 +7,18 @@ services:
     volumes_from:
       - pinpoint-agent
     ports:
-      - 8080:8080
+      - 18080:8080
     environment:
       JAVA_OPTS: "-javaagent:/assets/pinpoint-agent/pinpoint-bootstrap-1.7.1.jar -Dpinpoint.agentId=app-in-docker -Dpinpoint.applicationName=app"
 
   pinpoint-agent:
     image: dawidmalina/pinpoint-agent:1.7.1
- #   net: "none"
- #   restart: unless-stopped
+    net: "none"
+    restart: unless-stopped
     environment:
-      COLLECTOR_IP: 192.168.99.100
+      COLLECTOR_IP: 168.192.1.46
       COLLECTOR_TCP_PORT: 9994
       COLLECTOR_UDP_STAT_LISTEN_PORT: 9995
       COLLECTOR_UDP_SPAN_LISTEN_PORT: 9996
+      PROFILER_SAMPLING_RATE: 1
       DISABLE_DEBUG: 'true'
