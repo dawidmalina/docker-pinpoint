@@ -13,7 +13,7 @@ services:
 
   pinpoint-agent:
     image: dawidmalina/pinpoint-agent:1.7.1
-    net: "none"
+    network_mode: "none"
     restart: unless-stopped
     environment:
       COLLECTOR_IP: 168.192.1.46
