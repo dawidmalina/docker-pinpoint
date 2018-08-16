@@ -16,7 +16,7 @@ services:
     network_mode: "none"
     restart: unless-stopped
     environment:
-      COLLECTOR_IP: 168.192.1.46
+      COLLECTOR_IP: 192.168.15.102
       COLLECTOR_TCP_PORT: 9994
       COLLECTOR_UDP_STAT_LISTEN_PORT: 9995
       COLLECTOR_UDP_SPAN_LISTEN_PORT: 9996

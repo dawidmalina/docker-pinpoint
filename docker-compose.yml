@@ -57,7 +57,7 @@ services:
       - "9997"
     ports:
       - "9997:9997"
-      - "8080:8080"
+      - "8181:8080"
     environment:
       HBASE_HOST: pinpoint-hbase
       HBASE_PORT: 2181

@@ -13,7 +13,7 @@ This repo contains the docker images for [Pinpoint](https://github.com/naver/pin
 docker-compose up -d
 ```
 
-Open your browser and then go to <http://localhost:8080>
+Open your browser and then go to <http://localhost:8181>
 
 > If you plan to use external volumes for hbase you should fill hbase first.
 > Please run this script inside hbase container
