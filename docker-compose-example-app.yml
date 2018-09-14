@@ -9,10 +9,10 @@ services:
     ports:
       - 18080:8080
     environment:
-      JAVA_OPTS: "-javaagent:/assets/pinpoint-agent/pinpoint-bootstrap-1.8.0-RC1.jar -Dpinpoint.agentId=app-in-docker -Dpinpoint.applicationName=app"
+      JAVA_OPTS: "-javaagent:/assets/pinpoint-agent/pinpoint-bootstrap-1.8.0.jar -Dpinpoint.agentId=app-in-docker -Dpinpoint.applicationName=app"
 
   pinpoint-agent:
-    image: dawidmalina/pinpoint-agent:1.8.0-RC1
+    image: dawidmalina/pinpoint-agent:1.8.0
     network_mode: "none"
     restart: unless-stopped
     environment:

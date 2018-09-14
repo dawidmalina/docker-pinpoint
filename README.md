@@ -3,10 +3,10 @@
 This repo contains the docker images for [Pinpoint](https://github.com/naver/pinpoint), or you can just use the docker compose file run pinpoint in seconds.
 
 ### Build the images
-* Go to a folder pinpoint-web `docker build -t dawidmalina/pinpoint-web:1.8.0-RC1 .` to build the image
-* Go to a folder pinpoint-hbase `docker build -t dawidmalina/pinpoint-hbase:1.8.0-RC1 .` to build the image
-* Go to a folder pinpoint-collector `docker build -t dawidmalina/pinpoint-collector:1.8.0-RC1 .` to build the image
-* Go to a folder pinpoint-agent `docker build -t dawidmalina/pinpoint-agent:1.8.0-RC1 .` to build the image
+* Go to a folder pinpoint-web `docker build -t dawidmalina/pinpoint-web:1.8.0 .` to build the image
+* Go to a folder pinpoint-hbase `docker build -t dawidmalina/pinpoint-hbase:1.8.0 .` to build the image
+* Go to a folder pinpoint-collector `docker build -t dawidmalina/pinpoint-collector:1.8.0 .` to build the image
+* Go to a folder pinpoint-agent `docker build -t dawidmalina/pinpoint-agent:1.8.0 .` to build the image
 
 ### Run all the containers
 ```
